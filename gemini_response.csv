@@ -1,0 +1,9 @@
+Time,Event,Details
+15:42:55,Harsh Braking,Speed drop of 16.0 km/h in 4.5 sec
+15:46:30,Sharp Turn,Bearing changed by 35.0° at speed 45.0 km/h
+15:50:45,High Acceleration,Acceleration increased by 0.60g in 1.0 sec (Rate: 0.60 g/s)
+15:55:45,High Acceleration,Acceleration increased by 0.55g in 1.0 sec (Rate: 0.55 g/s)
+16:02:40,Speed Breaker / Pothole,Vertical acceleration spike of 0.35g at speed 42.0 km/h
+16:04:10,High Acceleration,Acceleration increased by 0.65g in 1.0 sec (Rate: 0.65 g/s)
+16:04:50,High Acceleration,Acceleration increased by 0.80g in 1.0 sec (Rate: 0.80 g/s)
+16:07:05,Sharp Turn,Bearing changed by 40.0° at speed 48.0 km/h
