@@ -139,6 +139,57 @@ Together, these components provide a holistic view of the driver’s condition a
    - Alerts (if configured) can be sent to insurance providers or driver’s mobile applications.
 
 ---
+## 7. Getting Started
+
+Below is a step-by-step guide to setting up and running **Drishti** for development or testing.
+
+### 1. Install Dependencies
+   1. On Raspberry Pi (assuming a Debian-based OS):
+   ```bash
+   sudo apt-get update
+   sudo apt-get install python3-pip python3-opencv python3-numpy python3-pandas python3-serial
+   ### Install any additional libraries required for camera support as needed.
+   ```
+   2. On Arduino:
+      1. Install the Arduino IDE.
+      2. Add any necessary libraries for reading from the MQ-3 sensor (optional, depending on your code).
+
+### 2. Connect and Configure Hardware
+   1. **Raspberry Pi Camera**: Enable the camera interface via `raspi-config`.
+   2. **USB Camera**: Connect it to one of the Pi’s USB ports and verify it’s detected.
+   3. **Arduino + MQ-3**: Plug in the Arduino via USB and check the serial port (e.g., `/dev/ttyACM0`).
+   4. **OBD Adapter**: Ensure the Pi recognizes it (Bluetooth or USB).
+
+### 3. Upload Arduino Code
+   1. Open the Arduino IDE and load the `.ino` file for MQ-3 sensor reading.
+   2. Adjust any thresholds as necessary.
+   3. Upload the code to the Arduino.
+
+### 4. Run the Raspberry Pi Scripts
+   1. In the cloned repository folder, locate the main Python script (e.g., `main.py`) or separate scripts for each component.
+   2. Launch them in separate terminals if needed:
+      ```bash
+      python3 camera_front.py
+      python3 camera_driver.py
+      python3 obd_processing.py
+      python3 alcohol_sensor.py
+      ```
+   3. Confirm that logs and CSV files are generated as expected.
+
+### 5. Server-Side Setup
+   1. On your VM server, install a web server (e.g., Apache or Nginx) or set up your Python-based server.
+   2. Configure watchers or scripts that monitor incoming CSVs and images for new data.
+   3. Implement or enable a dashboard on the **Drishti** website to show real-time incidents.
+
+### 6. Testing
+   1. **Local Tests**: Simulate a drowsiness event by blinking slowly or yawning in front of the USB camera. Verify if an event is logged.
+   2. **Alcohol Sensor**: Use a small amount of isopropyl alcohol or a controlled breath sample to trigger the MQ-3 sensor.
+   3. **OBD Data**: Use a vehicle or an OBD simulator to generate speed, RPM, and other signals.
+   4. **Visibility**: Block part of the camera’s view or run tests at night to see if the system correctly identifies reduced visibility.
+
+By following these steps, you should have a functional setup of **Drishti**, capturing and processing data to provide real-time insights into driver performance and potential risk factors.
+
+---
 
 ## Conclusion
 
